@@ -13,7 +13,7 @@
         android:title="List preference" />
     <EditTextPreference
         android:defaultValue="Default_Value"
-        android:key="edit_text_preference_1"
+        android:key="name"
         android:selectAllOnFocus="true"
         android:singleLine="true"
         android:title="Name" />

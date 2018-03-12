@@ -73,8 +73,8 @@ public class TipCalculatorActivity extends Activity
         //set the default values for the prefs
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
 
-        //get the default shared prefs object
-        prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        //set textview with shared pref obj
+        textViewResult.setText(PreferenceManager.getDefaultSharedPreferences(this).getString("name", null));
     }
 
     @Override
@@ -84,7 +84,6 @@ public class TipCalculatorActivity extends Activity
         editor.putString("billAmountString", billAmountString);
         editor.putFloat("tipPercent", tipPercent);
         editor.commit();
-
         super.onPause();
     }
 
@@ -101,6 +100,9 @@ public class TipCalculatorActivity extends Activity
 
         // calculate and display
         calculateAndDisplay();
+
+        //set textview as chosen name in pref
+        textViewResult.setText(PreferenceManager.getDefaultSharedPreferences(this).getString("name", null));
     }
 
     public void calculateAndDisplay() {
